@@ -1,0 +1,110 @@
+* {
+    border: 0;
+    margin: 0;
+}
+
+body {
+    padding-left: calc(100% / 2 - 400px);
+}
+
+#Redirect {
+    padding-left: 265px;
+}
+
+.RedirectButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#SignupForm {
+    padding: 10px 0 0 15px;
+    margin: 20px 0 0 150px;
+    height: 500px;
+    width: 400px;
+    border: 3px solid black;
+    border-radius: 20px;
+    display: flex; 
+    flex-direction: row;
+    align-items:center; 
+    flex-wrap:wrap;
+}
+
+#SignupForm > .FormLabels {
+    width: calc(100% / 4);
+}
+
+#SignupForm > .FormInputs {
+    height: 25px;
+    width: calc(100% * 2 /3);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+#Gender {
+    height: 25px;
+    width: calc(100% * 2 /3);
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: None;
+}
+
+#SignupForm .genderRadioLabel{
+    margin: 0 15px 0 10px;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 17px;
+}
+
+#Buttons {
+    padding-left: 100px;
+}
+
+.FormButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Buttons > #Submit {
+    background-color: royalblue;
+    color: whitesmoke;
+}
+
+#LoginForm {
+    padding: 10px 0 0 15px;
+    margin: 20px 0 0 150px;
+    height: 150px;
+    width: 400px;
+    border: 3px solid black;
+    border-radius: 15px;
+    display: flex; 
+    flex-direction: row;
+    align-items:center; 
+    flex-wrap:wrap;
+}
+
+#LoginForm > .FormLabels {
+    width: calc(100% / 4);
+    font-size: 18px;
+}
+
+#LoginForm> .FormInputs {
+    height: 30px;
+    width: calc(100% * 2 /3);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 17px;
+}

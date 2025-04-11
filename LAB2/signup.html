@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <title>Movie Site</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<h1>Welcome to INTERNET-PROGRAMMING MOVIE SITE</h1>
+<div id="Redirect">
+    <button id="RedirectToLogin" class="RedirectButton" onclick="location.href='./login.html'">로그인</button>
+    <button id="RedirectToSignup" class="RedirectButton" onclick="location.href='./signup.html'">회원가입</button>
+</div>
+<div id="Signup">
+    <form id="SignupForm" method="get" autocomplete="on" action="http://www.example.com">
+        <label class="FormLabels" for="Name">이름 :</label>
+        <input type="text" name="Name" id="Name" class="FormInputs" autofocus required/>
+    
+        <label class="FormLabels" for="Birthday">생일 :</label>
+        <input type="date" name="Birthday" id="Birthday" class="FormInputs" />
+    
+        <span class="FormLabels">성별 :</span>
+        <span id="Gender">
+            <input type="radio" name="Gender" id="Male" value="Male" checked/><label class="genderRadioLabel" for="Male">남성</label>
+            <input type="radio" name="Gender" id="Female" value="Female"/><label class="genderRadioLabel"for="Female">여성</label>
+        </span>
+    
+        <label class="FormLabels" for="Grade">학년 :</label>
+        <input type="number" name="Grade" id="Grade" class="FormInputs" min="1" max="6" step="1" value="1" required />
+    
+        <label class="FormLabels" for="Id">아이디 : </label>
+        <input type="text" name="Id" id="Id" class="FormInputs" required/>
+    
+        <label class="FormLabels" for="Password">비밀번호 :</label>
+        <input type="password" name="Password" id="Password" class="FormInputs" required/>
+    
+        <label class="FormLabels" for="Email">이메일 :</label>
+        <input type="email" name="Email" id="Email" class="FormInputs" placeholder="name@domain.com" required/>
+    
+        <label class="FormLabels" for="Question">보안 질문 :</label>
+        <select name="Question" id="Question" class="FormInputs">
+            <option valu="None" selected>------- 질문을 선택하세요 -------</option>
+            <option value="FavoiteFood">My Favortie Food</option>
+            <option value="HomeTowun">My HomeTown</option>
+            <option vlaue="HighSchool">My HighSchool</option>
+            <option value="BestFriend">My BestFriend</option>
+        </select>
+
+        <label class="FormLabels" for="Answer">답변 :</label>
+        <input type="text" name="Answer", id="Answer" class="FormInputs"/>
+
+        <span id="Buttons">
+            <input type="submit" value="회원가입" id="Submit" class="FormButton"/>
+            <input type="reset" value="초기화" id="Reset" class="FormButton"/>
+        </span>
+        
+    </form>
+</div>
+</body>
+</html>
