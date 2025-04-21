@@ -1,0 +1,475 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* signup.html */
+body#Signup {
+    display: flex;
+    flex-direction: column;
+    align-items:center; 
+}
+
+#Signup h1 {
+    margin-top: 10px;
+}
+
+#Signup #Redirect {
+    margin: 10px;
+}
+
+#Signup .RedirectButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Signup .RedirectButton:hover {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+    background-color: blue;
+    box-shadow: 2px 2px 3px gray;
+    color: whitesmoke;
+|}
+
+#Signup #Form {
+    padding: 10px 0 0 15px;
+    height: 500px;
+    width: 400px;
+    border: 3px solid black;
+    border-radius: 20px;
+    display: flex; 
+    flex-direction: row;
+    align-items:center; 
+    flex-wrap:wrap;
+}
+
+#Signup #Form .FormLabels {
+    width: 100px;
+}
+
+#Signup #Form .FormInputs {
+    height: 25px;
+    width: 270px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+#Signup #Gender {
+    height: 25px;
+    width: 270px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 15px;
+    border: None;
+}
+
+#Signup #Form .genderRadioLabel{
+    margin: 0 15px 0 10px;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 17px;
+}
+
+#Signup #Form #Buttons {
+    padding-left: 100px;
+}
+
+#Signup .FormButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Signup .FormButton:hover {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px gray;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Signup #Buttons #Submit {
+    background-color: royalblue;
+    color: whitesmoke;
+}
+
+#Signup #Buttons #Submit:hover {
+    background-color: blue;
+    color: whitesmoke;
+}
+
+#Signup #Buttons #Reset:hover {
+    background-color: rgb(210, 210, 210);
+}   
+
+/* login.html */
+
+body#Login {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+#Login #Redirect {
+    margin: 10px;
+}
+
+#Login .RedirectButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Login .RedirectButton:hover {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+    background-color: blue;
+    box-shadow: 2px 2px 3px gray;
+    color: whitesmoke;
+}
+
+#Login #Form {
+    padding: 10px 0 0 15px;
+    height: 150px;
+    width: 400px;
+    border: 3px solid black;
+    border-radius: 15px;
+    display: flex; 
+    flex-direction: row;
+    align-items:center; 
+    flex-wrap:wrap;
+}
+
+#Login #Form .FormLabels {
+    width: 100px;
+    font-size: 18px;
+}
+
+#Login #Form .FormInputs {
+    height: 30px;
+    width: 270px;
+    border: 1px solid black;
+    border-radius: 5px; 
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+#Login #Form #Buttons {
+    padding-left: 100px;
+}
+
+#Login .FormButton {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Login .FormButton:hover {
+    height:30px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px gray;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#Login #Buttons #Submit {
+    background-color: royalblue;
+    color: whitesmoke;
+}
+
+#Login #Buttons #Submit:hover {
+    background-color: blue;
+    color: whitesmoke;
+}
+
+#Login #Buttons #Reset:hover {
+    background-color: rgb(210, 210, 210);
+}   
+
+/* index.html */
+body#Index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Index #Head {
+    margin-top: 10px;
+    border-top: 5px solid black;
+    width: 1020px;
+}
+
+#Head h1 {
+    width: 425px;
+    position: relative;
+    animation: MovingHead linear 2s;
+}
+@keyframes MovingHead {
+    0% {left: 595px;}
+    100% {left: 0px;}
+}
+
+#Index #NavigateBar {
+    width: 1020px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    border-bottom: 5px double black;
+}
+
+#Index #NavigateBar .RedirectButton {
+    margin: 0 4px 0 4px;
+    height: 30px;
+    width: 100px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: whitesmoke;
+    border: none;
+}
+
+#Index #NavigateBar .RedirectButton:last-child {
+    height: 30px;
+    width: 100px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: royalblue;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+#Index #NavigateBar .RedirectButton:hover {
+    height: 30px;
+    width: 100px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: blue;
+    border-radius: 5px;
+    color: whitesmoke;
+    box-shadow: 2px 2px 3px gray;
+}
+
+#Index #NavigateBar .RedirectButton:hover ~ button.RedirectButton{
+    height: 30px;
+    width: 100px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: whitesmoke;
+    color: black;
+    border: none;  
+}
+
+#Index #Main {
+    width: 1000px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#Index #Posters {
+    width: 1000px;
+}
+
+#Index #Movies {
+    display: flex;
+    width: 1000px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#Index .Movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 220px;
+    height: 350px;
+    margin: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+#Index .MovieTitle {
+    position: relative;
+    top: -200px;
+    visibility: hidden;
+    pointer-events: none ;
+    font-size: 30px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px whitesmoke;
+}
+
+#Index #Main h2.Title {
+    width: 1000px;
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+#Index .Movie .MoviePoster {
+    width: 220px;
+    height: 350px;
+    display: block;
+}
+
+#Index .Movie .MoviePoster:hover {
+    animation: ScalePoster 2s ease-out;
+}
+@keyframes ScalePoster{
+    100% {transform: scale(1.3, 1.3);}
+}
+
+#Index .Movie .MoviePoster:hover + .MovieTitle {
+    visibility: visible;
+}
+
+#Index #Introduce {
+    width: 1000px;
+}
+
+#Index #About {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px outset black;
+}
+
+@media screen and (max-width: 400px) {
+    #Index #Head {
+        margin-top: 10px;
+        border-top: 3px solid black;
+        width: 320px;
+    }
+
+    #Index #NavigateBar {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        border-bottom: 3px double black;
+    }
+
+    #Index #Main {
+        width: 300px;
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #Index #Posters {
+        width: 300px;
+    }
+
+    #Index #Main h2.Title {
+        width: 300px;
+        border-bottom: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    #Index #Movies {
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #Index #Introduce {
+        width: 300px;
+    }
+
+    #Index #About {
+        column-count: 1;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
+    #Index #Head {
+        margin-top: 10px;
+        border-top: 4px solid black;
+        width: 620px;
+    }
+
+    #Index #NavigateBar {
+        width: 620px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        border-bottom: 4px double black;
+    } 
+
+    #Index #Main {
+        width: 600px;
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #Index #Posters {
+        width: 600px;
+    }
+
+    #Index #Main h2.Title {
+        width: 600px;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+    }
+
+    #Index #Movies {
+        display: flex;
+        width: 600px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #Index #Introduce {
+        width: 600px;
+    }
+
+    #Index #About {
+        column-count: 1;
+    }
+}
