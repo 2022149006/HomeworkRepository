@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Movie Site</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initial
+        const moviesContainer = document.getElementById('MovieList');
+        const searchForm = document.getElementById('SearchForm');
+        const filterForm = document.getElementById('FilterForm');
+
+        let moviesData = [];
+        let allMovies = [];
+        let currentPage = 0;
+        const pageSize = 3;
+        let isLoading = false;
+
+        // Load JSON file
+        fetch('./product.json')
+            .then(res => res.json())
+            .then(data => {
+                moviesData = data.map(movie => ({
+                    ...movie,
+                    rate: parseFloat(movie.rate) 
+                }));
+                
+                const defaultSort = 'RateDescending';
+                allMovies = sortMovies([...moviesData], defaultSort);
+                renderNextPage();
+
+                // Infinity Scroll
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        renderNextPage();
+                    }
+                }, { threshold: 1.0 });
+
+                const observerTarget = document.getElementById('ScrollObserver');
+                if (observerTarget) {
+                    observer.observe(observerTarget);
+                } else {
+                    console.warn('There is no ScrollObserver');
+                }
+            })
+            .catch(err => {
+                console.error('Failure to load JSON:', err);
+            });
+
+
+        // Moive Sort
+        function sortMovies(movies, sortValue) {
+            switch (sortValue) {
+                case 'RateDescending':
+                    return movies.sort((a, b) => b.rate - a.rate);
+                case 'RateAscending':
+                    return movies.sort((a, b) => a.rate - b.rate);
+                case 'DateDescending':
+                    return movies.sort((a, b) => new Date(b.release) - new Date(a.release));
+                case 'DateAscending':
+                    return movies.sort((a, b) => new Date(a.release) - new Date(b.release));
+                default:
+                    return movies;
+            }
+        }
+
+        // Filtering
+        function applyFilters() {
+            const searchValue = document.getElementById('Search').value.toLowerCase();
+            const sortValue = filterForm.Sort.value;
+
+            let filtered = moviesData.filter(movie =>
+                movie.title.toLowerCase().includes(searchValue)
+            );
+
+            // Sort
+            filtered = sortMovies(filtered, sortValue);
+
+            // Rest Infinity Scroll
+            allMovies = filtered;
+            currentPage = 0;
+            moviesContainer.innerHTML = '';
+            renderNextPage();
+
+            // Infinity Scroll
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    renderNextPage();
+                }
+            }, { threshold: 1.0 });
+
+            const observerTarget = document.getElementById('ScrollObserver');
+            if (observerTarget) {
+                observer.observe(observerTarget);
+            } else {
+                console.warn('There is no ScrollObserver');
+            }
+        }
+
+        // Page Rendering
+        function renderNextPage() {
+            if (isLoading) return;
+            isLoading = true;
+
+            const start = currentPage * pageSize;
+            const end = start + pageSize;
+            const nextMovies = allMovies.slice(start, end);
+            console.log(allMovies);
+            renderMovies(nextMovies);
+            currentPage++;
+            isLoading = false;
+        }
+
+        // Add movies
+        function renderMovies(movies) {
+            movies.forEach(movie => {
+                const movieDiv = document.createElement('div');
+                movieDiv.className = 'Movie';
+                movieDiv.innerHTML = `
+                    <div class="MoviePosterContainer">
+                        <img class="MoviePoster" src="${movie.poster}" alt="${movie.title} Poster"/>
+                        <div class="MovieOverview">${movie.overview}</div>
+                    </div>
+                    <div class="MovieRate">⭐${movie.rate}</div>
+                    <div class="MovieRelease">📅${movie.release}</div>
+                    <div class="MovieTitle">${movie.title}</div>
+                `;
+                moviesContainer.appendChild(movieDiv);
+            });
+        }
+
+        // Form Events
+        searchForm.addEventListener('submit', e => {
+            e.preventDefault();
+            applyFilters();
+        });
+
+        filterForm.addEventListener('change', () => {
+            applyFilters();
+        });
+    });
+    </script>
+
+</head>
+<body id="Index">
+    <div id="Head">
+        <h1>인프밍 영화 정보 사이트입니다.</h1>
+    </div>
+    
+    <nav id="NavigateBar">
+        <button id="RedirectToLogin" class="RedirectButton" onclick="location.href='./login.html'">로그인</button>
+        <button id="RedirectToSignup" class="RedirectButton" onclick="location.href='./signup.html'">회원가입</button>
+        <button id="RedirectToMain" class="RedirectButton" onclick="location.href='./index.html'">메인 페이지</button>
+    </nav>
+
+    <form id="SearchForm" method="get" action="">
+        <input type="search" id="Search" name="Search" placeholder="제목을 입력하세요"/>
+        <input type="submit"  id="SearchSubmit" value="검색"/>
+    </form>
+
+    <h2 class="MainTitle">Movies</h2>
+    <div id="Main">
+        
+        <form id="FilterForm" method="get" action="">
+            <div class="FilterList">
+                <input type="radio" name="Sort" id="RateDescending" value="RateDescending" checked/>
+                <label class="FilterRateLabel" for="RateDescending">평점 내림차순</label>
+            </div>
+            <div class="FilterList">
+                <input type="radio" name="Sort" id="RateAscending" value="RateAscending"/>
+                <label class="FilterRateLabel"for="RateAscending">평점 오름차순</label>
+            </div>
+            <div class="FilterList">
+                <input type="radio" name="Sort" id="DateDescending" value="DateDescending"/>
+                <label class="FilterDateLabel"for="DateDescending">개봉 내림차순</label>
+            </div>
+            <div class="FilterList">
+                <input type="radio" name="Sort" id="DateAscending" value="DateAscending"/>
+                <label class="FilterDateLabel"for="DateAscending">개봉 오름차순</label>
+            </div>
+        </form>
+
+        <div id="Movies">
+            <div id="MovieList"></div>
+            <div id="ScrollObserver"></div>
+        </div>
+    </div>
+</body>
+</html>
