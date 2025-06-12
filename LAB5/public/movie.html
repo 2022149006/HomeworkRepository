@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Movie Site</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+        const fs = require('fs/promises');
+
+        async function readJsonFile(path) {
+            try {
+                const data = await fs.readFile(path, 'utf-8');
+                const json = JSON.parse(data);
+                console.log(json); // 객체로 출력
+                return json;
+            } catch (err) {
+                console.error("파일 읽기 실패:", err);
+            }
+        }
+
+        async function writeJsonFile(path, object) {
+            try {
+                const jsonStr = JSON.stringify(object);
+                await fs.writeFile(path, jsonStr, 'utf-8');
+                console.log("파일 저장 완료");
+            } catch (err) {
+                console.error("파일 저장 실패:", err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document
+        });
+    </script>
+</head>
+<body id="MovieReview">
+    <div id="Head">
+        <h1>인프밍 영화 정보 사이트입니다.</h1>
+    </div>
+     
+    <nav id="NavigateBar">
+        <button id="RedirectToLogin" class="RedirectButton" onclick="location.href='./login.html'">로그인</button>
+        <button id="RedirectToSignup" class="RedirectButton" onclick="location.href='./signup.html'">회원가입</button>
+        <button id="RedirectToMain" class="RedirectButton" onclick="location.href='/'">메인 페이지</button>
+    </nav>
+    
+    <div id="Main">
+        <div id="Introduce">
+            <img id="MoviePoster" src="/posters/Iron_Man_poster.jpg" alt="Movie Poster"/>
+            <div id="Detail">
+                <p id="MovieId">영화 ID: 1</p>
+                <h3 id="MovieTitle">Iron Man</h3>
+                <p id="MovieDate">개봉일: 2008-04-30</p>
+                <p id="MovieRate">평점: 7.4</p>
+                <p id="MovieOverview">줄거리: After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</p>
+            </div>
+        </div>
+        <form id="Review" action="/moive.html" method="get">
+            <div id="ReviewText">
+                <label id="ReviewTitle" for="ReviewWrite">감상평 남기기</label>
+                <textarea id="ReviewWrite" name="review" cols="100" rows="3"></textarea>
+            </div>
+            <input id="ReviewSubmit" type="submit">
+        </form>
+        <ul id="Comment">
+            <h2>감상평</h2>
+            <li class="CommentList">hello world</li>
+            <li class="CommentList">bye world</li>
+            <li class="CommentList">hello world</li>
+            <li class="CommentList">bye world</li>
+        </ul>
+    </div>
+</body>
+</html>
